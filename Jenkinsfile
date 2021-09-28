@@ -19,7 +19,7 @@ pipeline{
             steps {
         
 		        withCredentials([string(credentialsId: 'DOCKER_PSWD', variable: 'PASSWORD')]) {
-                    sh 'docker login -u patelsaheb -p $PASSWORD'
+                    sh 'sudo docker login -u patelsaheb -p $PASSWORD'
                 }
             }
         }
@@ -43,6 +43,8 @@ pipeline{
 
 	post {
 		always {
+
+            cleanWs()
 			//sh '''docker logout'''
             echo "done"
 		}
