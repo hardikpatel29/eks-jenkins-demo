@@ -9,7 +9,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t patelsaheb/hellonodejs:eks .'
+				sh 'sudo docker build -t patelsaheb/hellonodejs:eks .'
                 sh ''
 			}
 		}
@@ -22,7 +22,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'docker push patelsaheb/hellonodejs:eks'
+				sh 'sudo docker push patelsaheb/hellonodejs:eks'
 			}
 		}
 
