@@ -3,25 +3,20 @@ pipeline{
 
 	agent any
 
-	environment {
-		DOCKERHUB_CREDENTIALS=credentials('docker-login')
-	}
-
+	
 	stages {
 
 		stage('Build') {
 
 			steps {
 				sh 'docker build -t patelsaheb/hellonodejs:eks .'
+                sh ''
 			}
 		}
 
-		stage('Login') {
-
-			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-			}
-		}
+		withCredentials([string(credentialsId: 'DOCKER_PSWD', variable: 'PASSWORD')]) {
+        sh 'docker login -u patelsaheb -p $PASSWORD'
+        }
 
 		stage('Push') {
 
