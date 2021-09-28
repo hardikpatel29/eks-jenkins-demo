@@ -13,11 +13,12 @@ pipeline{
                 sh ''
 			}
 		}
-
-		withCredentials([string(credentialsId: 'DOCKER_PSWD', variable: 'PASSWORD')]) {
-        sh 'docker login -u patelsaheb -p $PASSWORD'
-        }
-
+        
+        
+		// withCredentials([string(credentialsId: 'DOCKER_PSWD', variable: 'PASSWORD')]) {
+        //         sh 'docker login -u patelsaheb -p $PASSWORD'
+        // }
+        
 		stage('Push') {
 
 			steps {
