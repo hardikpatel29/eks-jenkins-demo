@@ -1,0 +1,14 @@
+{
+  "name": "hello world NodeJS",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Node.js on Docker",
+  "author": "hardik.patel@techifysolutions.com",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
+  }
+}
