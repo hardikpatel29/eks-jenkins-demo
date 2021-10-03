@@ -10,7 +10,7 @@ pipeline{
 
 			steps {
 				sh 'sudo docker build -t patelsaheb/hellonodejs:eks .'
-                sh ''
+               
 			}
 		}
         
@@ -44,9 +44,9 @@ pipeline{
 	post {
 		always {
 
-            cleanWs()
-			//sh '''docker logout'''
-            echo "done"
+            		cleanWs()
+			
+            		echo "done"
 		}
 	}
 
